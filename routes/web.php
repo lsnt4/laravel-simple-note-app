@@ -17,7 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', function() {
+    return redirect()->route('notes.index');
+});
 
 Route::get('notes', 'NoteController@index')->name('notes.index');
 Route::get('notes/create', 'NoteController@create')->name('notes.create');
